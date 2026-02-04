@@ -57,6 +57,7 @@ h1{
   margin: 48px 0 64px;
   display: flex;
   justify-content: center;
+  position: relative; /* anchor the fades */
 }
 
 .image-block img{
@@ -66,25 +67,36 @@ h1{
   display: block;
   opacity: 0.92;
   border-radius: 28px;
-
-  /* The key: melt the edges inward */
-  box-shadow:
-    inset 0 0 120px rgba(11,11,12,0.85),
-    inset 0 0 240px rgba(11,11,12,0.75);
 }
 
-/* Edge fade overlay to blend image into page background */
+/* Fade the edges using an overlay on the container (reliable) */
 .image-block::after{
   content:"";
   position:absolute;
-  inset:0;
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  width: min(720px, 100%);
+  height: 100%;
   pointer-events:none;
   border-radius: 28px;
+
+  /* Two-layer fade:
+     1) a soft vignette (radial)
+     2) a gentle edge burn-in (linear) to kill the rectangle */
   background:
     radial-gradient(
       ellipse at center,
-      rgba(11,11,12,0) 55%,
-      rgba(11,11,12,0.80) 88%
+      rgba(11,11,12,0) 45%,
+      rgba(11,11,12,0.65) 78%,
+      rgba(11,11,12,0.92) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(11,11,12,0.95) 0%,
+      rgba(11,11,12,0) 14%,
+      rgba(11,11,12,0) 86%,
+      rgba(11,11,12,0.95) 100%
     );
 }
 

@@ -5,8 +5,8 @@
   --hair: rgba(242,242,240,.18);
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
 body{
   margin:0;
@@ -17,8 +17,13 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-a{color:var(--fg); text-decoration:none}
-a:hover{text-decoration:underline}
+a{
+  color:var(--fg);
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
 
 .wrap{
   max-width: 920px;
@@ -27,7 +32,7 @@ a:hover{text-decoration:underline}
 }
 
 .hero{
-  margin-bottom: 42px;
+  margin-bottom: 40px;
 }
 
 h1{
@@ -44,58 +49,54 @@ h1{
   color: var(--muted);
 }
 
-/* Parked image placeholder (remove once you add your real image) */
-.image-placeholder{
-  margin: 46px 0 62px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap: 14px;
-  padding: 40px 22px;
-  border: 1px solid var(--hair);
-  border-radius: 28px;
-  background: rgba(242,242,240,.03);
-}
+/* =========================
+   IMAGE BLOCK
+   ========================= */
 
-.placeholder-mark{
-  width: 180px;
-  height: 180px;
-  border-radius: 999px;
-  border: 1px solid rgba(242,242,240,.22);
-  background:
-    radial-gradient(closest-side, rgba(242,242,240,.09), transparent 70%);
-}
-
-.placeholder-text{
-  font-size: 13px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(242,242,240,.56);
-}
-
-/* When you add your real image, use this block instead of placeholder */
 .image-block{
-  margin: 46px 0 62px;
-  display:flex;
-  justify-content:center;
+  margin: 48px 0 64px;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .image-block img{
-  max-width: 520px;
+  max-width: 720px;
   width: 100%;
   height: auto;
-  display:block;
+  display: block;
   opacity: 0.92;
   border-radius: 28px;
 }
 
-/* Dividers + layout */
+/* Edge fade overlay to blend image into page background */
+.image-block::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(11,11,12,0) 55%,
+      rgba(11,11,12,0.80) 88%
+    );
+}
+
+/* =========================
+   DIVIDER
+   ========================= */
+
 .rule{
   height:1px;
   background:var(--hair);
-  margin: 26px 0 28px;
+  margin: 28px 0 32px;
 }
+
+/* =========================
+   CONTACT SECTION
+   ========================= */
 
 .section{
   display:grid;
@@ -120,12 +121,9 @@ h1{
 
 .list li{
   padding: 8px 0;
-  border-bottom: 1px solid var(--hair);
   font-size: 18px;
   line-height: 1.35;
 }
-
-.list li:last-child{border-bottom:none}
 
 .small{
   font-size: 14px;
@@ -133,7 +131,16 @@ h1{
   margin-top: 18px;
 }
 
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 640px){
-  .section{grid-template-columns: 1fr; gap: 10px}
-  .wrap{padding-top:56px}
+  .section{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .wrap{
+    padding-top:56px;
+  }
 }

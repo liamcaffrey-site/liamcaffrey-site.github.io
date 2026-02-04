@@ -39,6 +39,13 @@ h1{
   color: var(--muted);
 }
 
+.now{
+  display:inline-block;
+  margin-top:10px;
+  color: rgba(242,242,240,.58);
+  font-size: 16px;
+}
+
 .rule{
   height:1px;
   background:var(--hair);

@@ -22,6 +22,11 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  text-align:center;
+}
+
+header.hero{
+  text-align:center;
 }
 
 /* =========================
@@ -127,9 +132,10 @@ h1{
    ========================= */
 
 .section{
-  display:grid;
-  grid-template-columns:170px 1fr;
-  gap:18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
   padding:16px 0;
 }
 

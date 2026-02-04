@@ -7,6 +7,7 @@
 
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
   background:var(--bg);
@@ -25,6 +26,10 @@ a:hover{text-decoration:underline}
   padding: 72px 22px 96px;
 }
 
+.hero{
+  margin-bottom: 42px;
+}
+
 h1{
   margin:0 0 18px;
   font-size: clamp(44px, 7vw, 84px);
@@ -34,22 +39,62 @@ h1{
 }
 
 .tag{
-  margin:0 0 56px;
+  margin:0;
   font-size: 18px;
   color: var(--muted);
 }
 
-.now{
-  display:inline-block;
-  margin-top:10px;
-  color: rgba(242,242,240,.58);
-  font-size: 16px;
+/* Parked image placeholder (remove once you add your real image) */
+.image-placeholder{
+  margin: 46px 0 62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap: 14px;
+  padding: 40px 22px;
+  border: 1px solid var(--hair);
+  border-radius: 28px;
+  background: rgba(242,242,240,.03);
 }
 
+.placeholder-mark{
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  border: 1px solid rgba(242,242,240,.22);
+  background:
+    radial-gradient(closest-side, rgba(242,242,240,.09), transparent 70%);
+}
+
+.placeholder-text{
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(242,242,240,.56);
+}
+
+/* When you add your real image, use this block instead of placeholder */
+.image-block{
+  margin: 46px 0 62px;
+  display:flex;
+  justify-content:center;
+}
+
+.image-block img{
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  display:block;
+  opacity: 0.92;
+  border-radius: 28px;
+}
+
+/* Dividers + layout */
 .rule{
   height:1px;
   background:var(--hair);
-  margin: 24px 0 26px;
+  margin: 26px 0 28px;
 }
 
 .section{

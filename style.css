@@ -80,15 +80,25 @@ h1{
   height: 100%;
   pointer-events:none;
   border-radius: 28px;
+
+  /* Stronger top/bottom melt + gentle overall vignette */
   background:
+    /* top/bottom fade (strong) */
     linear-gradient(
       to bottom,
-      rgba(11,11,12,0.95) 0%,
-      rgba(11,11,12,0.25) 22%,
-      rgba(11,11,12,0) 45%,
-      rgba(11,11,12,0) 55%,
-      rgba(11,11,12,0.25) 78%,
-      rgba(11,11,12,0.95) 100%
+      rgba(11,11,12,0.98) 0%,
+      rgba(11,11,12,0.55) 16%,
+      rgba(11,11,12,0.08) 34%,
+      rgba(11,11,12,0.08) 66%,
+      rgba(11,11,12,0.55) 84%,
+      rgba(11,11,12,0.98) 100%
+    ),
+    /* soft vignette (keeps corners quiet) */
+    radial-gradient(
+      ellipse at center,
+      rgba(11,11,12,0) 52%,
+      rgba(11,11,12,0.55) 82%,
+      rgba(11,11,12,0.92) 100%
     );
 }
 

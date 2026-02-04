@@ -1,12 +1,19 @@
+/* =========================
+   ROOT / THEME
+   ========================= */
+
 :root{
-  --bg:#0b0b0c;
+  --bg:#09080d;              /* tuned to image black */
   --fg:#f2f2f0;
-  --muted: rgba(242,242,240,.72);
-  --hair: rgba(242,242,240,.18);
+  --muted:rgba(242,242,240,.72);
+  --hair:rgba(242,242,240,.16);
 }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;
+}
 
 body{
   margin:0;
@@ -17,84 +24,93 @@ body{
   text-rendering:optimizeLegibility;
 }
 
+/* =========================
+   LINKS
+   ========================= */
+
 a{
   color:var(--fg);
   text-decoration:none;
 }
+
 a:hover{
   text-decoration:underline;
 }
 
+/* =========================
+   LAYOUT
+   ========================= */
+
 .wrap{
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 72px 22px 96px;
-}
-
-.hero{
-  margin-bottom: 40px;
-}
-
-h1{
-  margin:0 0 18px;
-  font-size: clamp(44px, 7vw, 84px);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  font-weight: 650;
-}
-
-.tag{
-  margin:0;
-  font-size: 18px;
-  color: var(--muted);
+  max-width:920px;
+  margin:0 auto;
+  padding:72px 22px 96px;
 }
 
 /* =========================
-   IMAGE BLOCK – FINAL
+   HERO
+   ========================= */
+
+h1{
+  margin:0 0 18px;
+  font-size:clamp(44px,7vw,84px);
+  line-height:0.95;
+  letter-spacing:-0.03em;
+  font-weight:650;
+}
+
+.tag{
+  margin:0 0 56px;
+  font-size:18px;
+  color:var(--muted);
+}
+
+/* =========================
+   IMAGE BLOCK
    ========================= */
 
 .image-block{
-  margin: 52px 0 72px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  overflow: visible;
+  position:relative;
+  margin:32px 0 56px;
+  display:flex;
+  justify-content:center;
 }
 
 .image-block img{
-  max-width: 360px;
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.92;
-  border-radius: 28px;
+  max-width:360px;          /* 50% smaller */
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:28px;
+  opacity:0.95;
 }
 
-/* Vertical fade only (no left/right boxing) */
+/* Museum-grade edge melt */
+
 .image-block::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  border-radius: 28px;
+  border-radius:28px;
 
   background:
-    /* ultra-soft overall melt */
     radial-gradient(
       ellipse at center,
-      rgba(11,11,12,0) 48%,
-      rgba(11,11,12,0.35) 68%,
-      rgba(11,11,12,0.82) 86%
-      rgba(11,11,12,0.92) 100%
+      rgba(9,8,13,0) 45%,
+      rgba(9,8,13,0.45) 65%,
+      rgba(9,8,13,0.82) 82%,
+      rgba(9,8,13,0.96) 100%
     ),
-    /* subtle vertical assist (barely perceptible) */
     linear-gradient(
       to bottom,
-      rgba(11,11,12,0.35),
-      rgba(11,11,12,0),
-      rgba(11,11,12,0),
-      rgba(11,11,12,0.35)
+      rgba(9,8,13,0.35),
+      rgba(9,8,13,0),
+      rgba(9,8,13,0),
+      rgba(9,8,13,0.35)
     );
+
+  filter:blur(10px);
 }
 
 /* =========================
@@ -104,7 +120,7 @@ h1{
 .rule{
   height:1px;
   background:var(--hair);
-  margin: 28px 0 32px;
+  margin:56px 0 40px;
 }
 
 /* =========================
@@ -113,17 +129,17 @@ h1{
 
 .section{
   display:grid;
-  grid-template-columns: 170px 1fr;
-  gap: 18px;
-  padding: 16px 0;
+  grid-template-columns:170px 1fr;
+  gap:18px;
+  padding:16px 0;
 }
 
 .kicker{
-  font-size: 13px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-top: 4px;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding-top:4px;
 }
 
 .list{
@@ -133,27 +149,28 @@ h1{
 }
 
 .list li{
-  padding: 8px 0;
-  font-size: 18px;
-  line-height: 1.35;
+  padding:8px 0;
+  font-size:18px;
+  line-height:1.35;
 }
 
 .small{
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 18px;
+  font-size:14px;
+  color:var(--muted);
+  margin-top:18px;
 }
 
 /* =========================
-   MOBILE
+   RESPONSIVE
    ========================= */
 
-@media (max-width: 640px){
-  .section{
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
+@media (max-width:640px){
   .wrap{
     padding-top:56px;
+  }
+
+  .section{
+    grid-template-columns:1fr;
+    gap:10px;
   }
 }

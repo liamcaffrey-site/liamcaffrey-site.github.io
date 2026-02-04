@@ -50,18 +50,19 @@ h1{
 }
 
 /* =========================
-   IMAGE BLOCK
+   IMAGE BLOCK – FINAL
    ========================= */
 
 .image-block{
-  margin: 48px 0 64px;
+  margin: 52px 0 72px;
   display: flex;
   justify-content: center;
-  position: relative; /* anchor the fades */
+  position: relative;
+  overflow: visible;
 }
 
 .image-block img{
-  max-width: 720px;
+  max-width: 760px;
   width: 100%;
   height: auto;
   display: block;
@@ -69,33 +70,24 @@ h1{
   border-radius: 28px;
 }
 
-/* Fade the edges using an overlay on the container (reliable) */
+/* Vertical fade only (no left/right boxing) */
 .image-block::after{
   content:"";
   position:absolute;
-  top:0;
   left:50%;
-  transform: translateX(-50%);
-  width: min(720px, 100%);
+  transform:translateX(-50%);
+  width: min(760px, 100%);
   height: 100%;
   pointer-events:none;
   border-radius: 28px;
-
-  /* Two-layer fade:
-     1) a soft vignette (radial)
-     2) a gentle edge burn-in (linear) to kill the rectangle */
   background:
-    radial-gradient(
-      ellipse at center,
-      rgba(11,11,12,0) 45%,
-      rgba(11,11,12,0.65) 78%,
-      rgba(11,11,12,0.92) 100%
-    ),
     linear-gradient(
-      to right,
+      to bottom,
       rgba(11,11,12,0.95) 0%,
-      rgba(11,11,12,0) 14%,
-      rgba(11,11,12,0) 86%,
+      rgba(11,11,12,0.25) 22%,
+      rgba(11,11,12,0) 45%,
+      rgba(11,11,12,0) 55%,
+      rgba(11,11,12,0.25) 78%,
       rgba(11,11,12,0.95) 100%
     );
 }

@@ -62,7 +62,7 @@ h1{
 }
 
 .image-block img{
-  max-width: 760px;
+  max-width: 360px;
   width: 100%;
   height: auto;
   display: block;

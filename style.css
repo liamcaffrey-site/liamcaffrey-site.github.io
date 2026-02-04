@@ -3,7 +3,7 @@
    ========================= */
 
 :root{
-  --bg:#09080d;              /* tuned to image black */
+  --bg:#0A070D;              /* sampled from waves background */
   --fg:#f2f2f0;
   --muted:rgba(242,242,240,.72);
   --hair:rgba(242,242,240,.16);
@@ -85,8 +85,7 @@ h1{
   opacity:0.95;
 }
 
-/* Museum-grade edge melt */
-
+/* Museum-grade edge melt matching --bg (#0A070D = rgb(10,7,13)) */
 .image-block::after{
   content:"";
   position:absolute;
@@ -97,17 +96,17 @@ h1{
   background:
     radial-gradient(
       ellipse at center,
-      rgba(9,8,13,0) 45%,
-      rgba(9,8,13,0.45) 65%,
-      rgba(9,8,13,0.82) 82%,
-      rgba(9,8,13,0.96) 100%
+      rgba(10,7,13,0) 45%,
+      rgba(10,7,13,0.45) 65%,
+      rgba(10,7,13,0.82) 82%,   /* museum-grade melt */
+      rgba(10,7,13,0.96) 100%
     ),
     linear-gradient(
       to bottom,
-      rgba(9,8,13,0.35),
-      rgba(9,8,13,0),
-      rgba(9,8,13,0),
-      rgba(9,8,13,0.35)
+      rgba(10,7,13,0.35),
+      rgba(10,7,13,0),
+      rgba(10,7,13,0),
+      rgba(10,7,13,0.35)
     );
 
   filter:blur(10px);
@@ -165,12 +164,6 @@ h1{
    ========================= */
 
 @media (max-width:640px){
-  .wrap{
-    padding-top:56px;
-  }
-
-  .section{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
+  .wrap{ padding-top:56px; }
+  .section{ grid-template-columns:1fr; gap:10px; }
 }

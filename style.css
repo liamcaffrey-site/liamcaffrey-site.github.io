@@ -1,160 +1,144 @@
-/* =========================
-   RESET / BASE
-   ========================= */
-
-*{
-  box-sizing:border-box;
+:root {
+  --bg: #0b0b0c;
+  --fg: #f2f2f0;
+  --muted: rgba(242,242,240,0.65);
+  --hair: rgba(242,242,240,0.15);
 }
 
-html, body{
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
 }
 
-body{
-  background:#0b0b0c;
-  color:#f2f2f2;
-  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI",
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                Roboto, Helvetica, Arial, sans-serif;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* =========================
    LAYOUT
    ========================= */
 
-.wrap{
-  max-width:960px;
-  margin:0 auto;
-  padding:96px 24px 120px;
-  text-align:center;
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 22px 96px;
+  text-align: center;
 }
 
 /* =========================
    HERO
    ========================= */
 
-.hero{
-  margin-bottom:24px;
-}
-
-/*
-h1{
-  margin:0 0 18px;
-  font-family:"Libre Caslon Display", serif;
-  font-size:clamp(44px,7vw,84px);
-  line-height:0.96;
-  letter-spacing:-0.01em;
-  font-weight:400;
-}
-
-h1 {
-  font-family: "Libre Caslon Display", serif;
-  font-size: clamp(48px, 8vw, 84px);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  margin: 0;
-}*/
-
-h1 {
+.hero h1 {
   font-family: "Fraunces", serif;
   font-size: clamp(48px, 8vw, 84px);
   font-weight: 300;
   letter-spacing: 0.04em;
- font-variation-settings: "opsz" 72;
+  margin: 0 0 10px;
 }
-/*
-.tag{
-  margin:0;
-  margin-top: 8px;
-  font-size:14px;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  opacity:0.6;
-}
-*/
 
 .tag {
   font-size: 13px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
 }
+
 .tag .amp {
   display: inline-block;
-  margin: 0 0.6em;
+  margin: 0 0.55em;
   letter-spacing: 0;
-   opacity: 0.7;
+  opacity: 0.65;
 }
 
 /* =========================
    IMAGE
    ========================= */
 
-.image-block{
-  margin:28px 0 32px;
-  max-width:360px;
+.image-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 28px auto 24px;
+  width: 100%;
 }
 
-.image-block img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:28px;
-  opacity:0.94;
-
-  /* museum-grade edge melt */
-  mask-image:radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,1) 55%,
-    rgba(0,0,0,0) 92%
-  );
+.image-block img {
+  display: block;
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0.95;
 }
 
 /* =========================
    DIVIDER
    ========================= */
 
-.rule{
-  width:120px;
-  height:1px;
-  background:rgba(255,255,255,0.12);
-  margin:20px 0;
+.rule {
+  height: 1px;
+  background: var(--hair);
+  margin: 32px 0 22px;
 }
 
 /* =========================
-   CONTENT
+   CONTACT
    ========================= */
 
-.section{
-  margin-top: 18px;
-  padding: 8px 0;
+.section {
+  padding-top: 8px;
 }
 
-.list{
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.list {
   list-style: none;
   padding: 0;
-  margin: 4px 0 12px;
+  margin: 4px 0 10px;
 }
 
-.list li{
+.list li {
   margin: 0;
   padding: 6px 0;
 }
 
-.list a{
-  color:#f2f2f2;
-  text-decoration:none;
-  font-size:15px;
-  letter-spacing:0.02em;
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
 }
 
-.list a:hover{
-  opacity:0.7;
-}
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-.small{
-  font-size:13px;
-  opacity:0.5;
+@media (max-width: 640px) {
+  .wrap {
+    padding-top: 56px;
+  }
 }

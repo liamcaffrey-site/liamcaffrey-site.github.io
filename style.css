@@ -64,7 +64,7 @@ h1 {
   letter-spacing: 0.04em;
  font-variation-settings: "opsz" 72;
 }
-
+/*
 .tag{
   margin:0;
   margin-top: 8px;
@@ -72,6 +72,20 @@ h1 {
   letter-spacing:0.18em;
   text-transform:uppercase;
   opacity:0.6;
+}
+*/
+
+.tag {
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tag .amp {
+  display: inline-block;
+  margin: 0 0.6em;
+  letter-spacing: 0;
+   opacity: 0.7;
 }
 
 /* =========================

@@ -67,19 +67,42 @@ a:active {
   margin-bottom: 26px;
 }
 
+/*
 .tag {
   font-size: 15px;                 /* larger again */
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 48px;             /* more air */
+}*/
+
+.tag {
+  font-size: 15px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+
+  /* KEY CHANGE */
+  color: rgba(242, 242, 242, 0.75);
+
+  /* subtle lift from background */
+  text-shadow: 0 0 1px rgba(0,0,0,0.6);
+
+  margin-bottom: 44px;
 }
 
+/*
 .tag .amp {
   display: inline-block;
   margin: 0 0.75em;                /* moderate spacing */
   letter-spacing: 0;
   opacity: 0.7;
+}
+*/
+.tag .amp {
+  display: inline-block;
+  margin: 0 0.55em;        /* slightly less spacing */
+  letter-spacing: 0;
+  opacity: 0.85;           /* stronger than surrounding letters */
 }
 
 /* =========================
@@ -171,12 +194,25 @@ a:active {
 .section {
   margin-top: 0;
 }
-
+/*
 .kicker {
   font-size: 14px;                 /* larger */
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--muted);
+  margin-bottom: 18px;
+}
+*/
+.kicker {
+  font-size: 14px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  /* KEY CHANGE */
+  color: rgba(242, 242, 242, 0.7);
+
+  text-shadow: 0 0 1px rgba(0,0,0,0.6);
+
   margin-bottom: 18px;
 }
 

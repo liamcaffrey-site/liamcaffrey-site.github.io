@@ -1,181 +1,206 @@
 /* =========================
-   ROOT
+   ROOT / VARIABLES
    ========================= */
 
-:root{
-  /* darker site background (closer to the JPEG) */
-  --bg:#050506;
-
-  --text:#f2f2f2;
-  --muted:rgba(242,242,242,.55);
-  --hair:rgba(242,242,242,.14);
+:root {
+  --bg: #050506;          /* matched to waves JPEG background */
+  --text: #f2f2f2;
+  --muted: #9a9a9a;
 }
 
 /* =========================
-   GLOBAL
+   RESET
    ========================= */
 
-*{box-sizing:border-box}
-
-html,body{height:100%}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a{color:var(--text); text-decoration:none}
-a:hover{opacity:.85}
-
 /* =========================
-   LAYOUT
+   BASE
    ========================= */
 
-.wrap{
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Libre Caslon Display", Georgia, serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================
+   WRAP
+   ========================= */
+
+.wrap {
   max-width: 980px;
   margin: 0 auto;
-  padding: 84px 24px 110px;
-  text-align: center;
+  padding: 96px 24px 120px;
 }
 
 /* =========================
    HERO
    ========================= */
 
-.hero h1{
-  font-family:"Libre Caslon Display",serif;
-  font-size: clamp(56px, 7.6vw, 110px);
+.hero h1 {
+  font-size: clamp(56px, 8vw, 108px);
   font-weight: 400;
-  margin: 0 0 18px;
-  /* more spaced, but still elegant */
-  letter-spacing: 0.10em;
+  letter-spacing: 0.18em;
+  margin-bottom: 22px;
 }
 
-.tag{
-  margin: 0 0 28px;
+.tag {
   font-size: 13px;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.tag .amp{
-  display:inline-block;
-  margin: 0 1.35em;   /* exaggerated space either side of & */
-  letter-spacing: 0;  /* keep ampersand tight */
-  opacity: .72;
+/* Ampersand spacing control */
+.tag .amp {
+  display: inline-block;
+  margin: 0 0.65em;   /* reduced spacing as requested */
+  letter-spacing: 0;
+  opacity: 0.7;
 }
 
 /* =========================
-   IMAGE — "MUSEUM MELT"
+   IMAGE
    ========================= */
 
-.image-block{
-  display:flex;
-  justify-content:center;
-  margin: 0 0 22px; /* less space below image */
+.image-block {
+  margin: 44px auto 42px;
+  display: flex;
+  justify-content: center;
 }
 
-.image-frame{
+.image-frame {
   position: relative;
-  width: min(560px, 92vw); /* image size control */
-}
+  width: min(560px, 92vw);
 
-/* The actual image */
-.image-frame img{
-  display:block;
-  width:100%;
-  height:auto;
-  opacity:.97;
-}
-
-/*
-  1) Strong mask so the edge cannot exist.
-  2) Add a soft vignette overlay to blend with --bg.
-  This combination is what makes the boundary disappear.
-*/
-
-.image-frame{
-  /* hard-kill the rectangle edge */
-  -webkit-mask-image: radial-gradient(ellipse at center,
-    rgba(0,0,0,1) 48%,
-    rgba(0,0,0,.95) 58%,
-    rgba(0,0,0,.75) 66%,
-    rgba(0,0,0,.35) 76%,
-    rgba(0,0,0,0) 88%
+  /* HARD EDGE REMOVAL */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 42%,
+    rgba(0,0,0,.98) 52%,
+    rgba(0,0,0,.85) 62%,
+    rgba(0,0,0,.45) 74%,
+    rgba(0,0,0,0) 90%
   );
-  mask-image: radial-gradient(ellipse at center,
-    rgba(0,0,0,1) 48%,
-    rgba(0,0,0,.95) 58%,
-    rgba(0,0,0,.75) 66%,
-    rgba(0,0,0,.35) 76%,
-    rgba(0,0,0,0) 88%
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 42%,
+    rgba(0,0,0,.98) 52%,
+    rgba(0,0,0,.85) 62%,
+    rgba(0,0,0,.45) 74%,
+    rgba(0,0,0,0) 90%
   );
 }
 
-/* soft “melt” overlay to hide JPEG tonal mismatch */
-.image-frame::after{
-  content:"";
-  position:absolute;
-  inset:-10px; /* cover edge artefacts */
-  pointer-events:none;
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.96;
+}
 
-  /* 4-edge melt with extra top/bottom help */
+/* EXTRA BLEND LAYER */
+.image-frame::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  pointer-events: none;
+
   background:
-    linear-gradient(to right,  var(--bg) 0%, rgba(5,5,6,0) 22%, rgba(5,5,6,0) 78%, var(--bg) 100%),
-    linear-gradient(to bottom, var(--bg) 0%, rgba(5,5,6,0) 18%, rgba(5,5,6,0) 82%, var(--bg) 100%),
-    radial-gradient(ellipse at center, rgba(5,5,6,0) 46%, rgba(5,5,6,.55) 72%, var(--bg) 92%);
-  filter: blur(10px); /* this is the “museum-grade” softness */
-  opacity: .98;
+    linear-gradient(to right,
+      var(--bg) 0%,
+      rgba(5,5,6,0) 24%,
+      rgba(5,5,6,0) 76%,
+      var(--bg) 100%
+    ),
+    linear-gradient(to bottom,
+      var(--bg) 0%,
+      rgba(5,5,6,0) 22%,
+      rgba(5,5,6,0) 78%,
+      var(--bg) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(5,5,6,0) 38%,
+      rgba(5,5,6,.65) 68%,
+      var(--bg) 94%
+    );
+
+  filter: blur(18px);
+  opacity: 1;
 }
 
 /* =========================
    DIVIDER
    ========================= */
 
-.rule{
-  width: 180px;
+.rule {
+  width: 160px;
   height: 1px;
-  background: var(--hair);
-  margin: 18px auto 34px; /* tighter above, comfortable below */
+  background: rgba(255,255,255,0.18);
+  margin: 36px auto 46px;
 }
 
 /* =========================
    CONTACT
    ========================= */
 
-.section{
-  padding-top: 0;
-}
-
-.kicker{
-  font-size: 11px;
-  letter-spacing: .35em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
-
-.email{
-  font-size: 18px;
-  margin-bottom: 10px; /* restore spacing ABOVE “Based in…” */
-}
-
-.small{
-  font-size: 13px;
-  color: var(--muted);
+.section {
   margin-top: 0;
 }
 
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.list {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.list a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.list a:hover {
+  opacity: 0.85;
+}
+
+.small {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
 /* =========================
-   MOBILE
+   RESPONSIVE
    ========================= */
 
-@media (max-width: 640px){
-  .wrap{padding: 64px 20px 90px}
-  .hero h1{letter-spacing: .08em}
+@media (max-width: 600px) {
+  .hero h1 {
+    letter-spacing: 0.14em;
+  }
+
+  .wrap {
+    padding-top: 72px;
+  }
 }

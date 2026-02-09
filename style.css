@@ -208,3 +208,22 @@ a:active {
     padding-top: 72px;
   }
 }
+
+/* =========================
+   SOCIAL ICON
+   ========================= */
+
+.social {
+  margin: 22px 0 12px;
+}
+
+.social img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.social img:hover {
+  opacity: 1;
+}

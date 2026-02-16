@@ -82,8 +82,8 @@ a:active {
   text-transform: uppercase;
 
   /* KEY CHANGE */
-  color: rgba(242, 242, 242, 0.75);
-
+  /* color: rgba(242, 242, 242, 0.75);*/
+  color: rgba(255, 255, 255, 1);
   /* subtle lift from background */
   text-shadow: 0 0 1px rgba(0,0,0,0.6);
 

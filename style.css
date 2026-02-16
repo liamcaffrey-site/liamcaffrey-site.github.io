@@ -68,13 +68,13 @@ a:active {
 }
 
 /*
-.tag {
-  font-size: 15px;                 /* larger again */
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 48px;             /* more air */
-}*/
+//.tag {
+// font-size: 15px;                 /* larger again */
+// letter-spacing: 0.34em;
+//  text-transform: uppercase;
+//  color: var(--muted);
+//  margin-bottom: 48px;             /* more air */
+// }*/
 
 .tag {
   font-size: 18px;

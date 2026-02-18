@@ -216,6 +216,19 @@ a:active {
   margin-bottom: 18px;
 }
 
+.email {
+  font-size: 14px;
+  letter-spacing: 0.28em;
+ 
+
+  /* KEY CHANGE 
+  color: rgba(242, 242, 242, 0.7);*/
+
+  text-shadow: 0 0 1px rgba(0,0,0,0.6);
+
+  /*margin-bottom: 18px;*/
+}
+
 .list {
   list-style: none;
   margin-bottom: 18px;
